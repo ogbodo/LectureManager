@@ -62,6 +62,10 @@ test("Admin can read timetables by department", function() {
   expect(admin.readTimetableByDepartment("mathematics")).toBeTruthy();
 });
 
+test("Admin can read Lecturers by department", function() {
+  expect(admin.readLecturersByDepartment("mathematics")).toBeTruthy();
+});
+
 test("Admin can delete a lecturer by email", function() {
   var oldLength = admin.readAllLecturers().length;
   admin.deleteLecturerByEmail("solomon@gmail.com");

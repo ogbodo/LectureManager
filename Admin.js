@@ -65,7 +65,6 @@ function Admin(name) {
 
   this.readTimetableByDepartment = function(department) {
     const timetables = this.retrieveAllTimetable();
-    console.log("readTimetableByDepartment", timetables);
 
     var foundTimetables = [];
     for (var i = 0; i < timetables.length; i++) {
@@ -74,6 +73,18 @@ function Admin(name) {
       }
     }
     return foundTimetables;
+  };
+
+  this.readLecturersByDepartment = function(department) {
+    const lecturers = retrieveAllLecturer();
+
+    var foundLecturers = [];
+    for (var i = 0; i < lecturers.length; i++) {
+      if (lecturers[i].department === department) {
+        foundLecturers.push(lecturers[i]);
+      }
+    }
+    return foundLecturers;
   };
 }
 
