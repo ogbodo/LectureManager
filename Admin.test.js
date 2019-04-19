@@ -50,6 +50,10 @@ test("Lecturer can read only all timetables belonging to him/her", function() {
   expect(lecturer1.readAllTimetables()).toBeTruthy();
 });
 
+test("Admin can read timetables by course title", function() {
+  expect(admin.readTimetableByCourseTitle("Mth211")).toBeTruthy();
+});
+
 test("Admin can delete a lecturer by email", function() {
   var oldLength = admin.readAllLecturers().length;
   admin.deleteLecturerByEmail("solomon@gmail.com");
