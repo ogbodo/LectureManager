@@ -1,4 +1,6 @@
 const Admin = require("./Admin");
+const Course = require("./Course");
+
 var admin, lecturer1, lecturer2, timetable;
 test("create new admin user", function() {
   admin = new Admin("Admin1");
@@ -55,7 +57,7 @@ test("Admin can read timetables by course title", function() {
 });
 
 test("Lecturers can read their own timetables by course title", function() {
-  expect(lecturer2.readTimetableByCourseTitle("Bio212")).toBeTruthy();
+  expect(lecturer2.readTimetableByCourseTitle("Pol212")).toBeTruthy();
 });
 
 test("Admin can read timetables by department", function() {
@@ -64,6 +66,16 @@ test("Admin can read timetables by department", function() {
 
 test("Admin can read Lecturers by department", function() {
   expect(admin.readLecturersByDepartment("mathematics")).toBeTruthy();
+});
+
+test("Lecturers can update their own timetables", function() {
+  // var timetableUpdate = new Course("Pol212", "LR66", "3pm", "5pm", "thursday");
+  var timetableUpdate = ["Eng421", "LR66", "3pm", "5pm", "thursday"];
+  // timetable = lecturer2.createTimetable("Pol212", "LR66", "4pm", "6pm", "fri");
+
+  expect(
+    lecturer2.updateTimetable("Pol212", "4pm", "fri", timetableUpdate)
+  ).toBeTruthy();
 });
 
 test("Admin can delete a lecturer by email", function() {
