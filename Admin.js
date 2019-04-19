@@ -62,6 +62,19 @@ function Admin(name) {
 
     return found;
   };
+
+  this.readTimetableByDepartment = function(department) {
+    const timetables = this.retrieveAllTimetable();
+    console.log("readTimetableByDepartment", timetables);
+
+    var foundTimetables = [];
+    for (var i = 0; i < timetables.length; i++) {
+      if (timetables[i].department === department) {
+        foundTimetables.push(timetables[i]);
+      }
+    }
+    return foundTimetables;
+  };
 }
 
 InheritProperty(Admin, User);

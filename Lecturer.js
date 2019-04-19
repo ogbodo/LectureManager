@@ -23,7 +23,8 @@ function Lecturer(fullname, department, arrayOfcourses, email, password, id) {
       startTime,
       endTime,
       day,
-      this.id
+      this.id,
+      this.department
     );
     saveTimetable(timetable);
 

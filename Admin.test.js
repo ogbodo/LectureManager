@@ -8,7 +8,7 @@ test("create new admin user", function() {
 test("Admin can create new lecturer", function() {
   lecturer1 = admin.createNewLecturer(
     "ogbodo Izu",
-    "maths",
+    "mathematics",
     ["mth"],
     "solomon@gmail.com",
     "solomon"
@@ -26,7 +26,7 @@ test("Admin can create new lecturer", function() {
 
 test("lecturer can create timetable", function() {
   timetable = lecturer1.createTimetable("Mth401", "AUD", "10am", "12pm", "mon");
-  timetable = lecturer2.createTimetable("Bio212", "LR66", "4pm", "6pm", "fri");
+  timetable = lecturer2.createTimetable("Pol212", "LR66", "4pm", "6pm", "fri");
 
   expect(timetable).toBeTruthy();
 });
@@ -56,6 +56,10 @@ test("Admin can read timetables by course title", function() {
 
 test("Lecturers can read their own timetables by course title", function() {
   expect(lecturer2.readTimetableByCourseTitle("Bio212")).toBeTruthy();
+});
+
+test("Admin can read timetables by department", function() {
+  expect(admin.readTimetableByDepartment("mathematics")).toBeTruthy();
 });
 
 test("Admin can delete a lecturer by email", function() {
