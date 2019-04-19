@@ -36,3 +36,9 @@ test("Admin can search for lecturer by email", function() {
 test("Admin can read all lecturers", function() {
   expect(admin.readAllLecturers()).toBeTruthy();
 });
+
+test("Admin can delete a lecturer by email", function() {
+  var oldLength = admin.readAllLecturers().length;
+  admin.deleteLecturerByEmail("solomon@gmail.com");
+  expect(admin.readAllLecturers().length).toBe(oldLength - 1);
+});

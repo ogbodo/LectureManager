@@ -43,6 +43,21 @@ function Admin(name) {
   this.readAllLecturers = function() {
     return retrieveAllLecturer();
   };
+
+  this.deleteLecturerByEmail = function(email) {
+    const lecturers = retrieveAllLecturer();
+    var found = false;
+    for (var i = 0; lecturers.length; i++) {
+      if (lecturers[i].email === email) {
+        found = lecturers[i];
+        lecturers.splice(i, 1);
+        break;
+      }
+    }
+    console.log("DELETED: ", found);
+
+    return found;
+  };
 }
 
 InheritProperty(Admin, User);
