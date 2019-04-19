@@ -69,10 +69,7 @@ test("Admin can read Lecturers by department", function() {
 });
 
 test("Lecturers can update their own timetables", function() {
-  // var timetableUpdate = new Course("Pol212", "LR66", "3pm", "5pm", "thursday");
   var timetableUpdate = ["Eng421", "LR66", "3pm", "5pm", "thursday"];
-  // timetable = lecturer2.createTimetable("Pol212", "LR66", "4pm", "6pm", "fri");
-
   expect(
     lecturer2.updateTimetable("Pol212", "4pm", "fri", timetableUpdate)
   ).toBeTruthy();
@@ -82,4 +79,10 @@ test("Admin can delete a lecturer by email", function() {
   var oldLength = admin.readAllLecturers().length;
   admin.deleteLecturerByEmail("solomon@gmail.com");
   expect(admin.readAllLecturers().length).toBe(oldLength - 1);
+});
+
+test("Admin can delete all timetables", function() {
+  var oldLength = admin.readAllLecturers().length;
+  admin.deleteAllTimetable();
+  expect(admin.retrieveAllTimetable().length).toBe(0);
 });

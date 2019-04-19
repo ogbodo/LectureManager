@@ -86,6 +86,10 @@ function Admin(name) {
     }
     return foundLecturers;
   };
+
+  this.deleteAllTimetable = function() {
+    DB["timetable"].splice(0, DB["timetable"].length);
+  };
 }
 
 InheritProperty(Admin, User);
