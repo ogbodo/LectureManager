@@ -72,7 +72,7 @@ function Admin(name) {
         foundTimetables.push(timetables[i]);
       }
     }
-    return foundTimetables;
+    return foundTimetables.length > 0 || false;
   };
 
   this.readLecturersByDepartment = function(department) {

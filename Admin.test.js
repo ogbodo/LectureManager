@@ -66,6 +66,10 @@ test("Admin can read timetables by department", function() {
   expect(admin.readTimetableByDepartment("mathematics")).toBeTruthy();
 });
 
+test("Admin trying to read timetables by department not existing", function() {
+  expect(admin.readTimetableByDepartment("Chemistry")).toBeFalsy();
+});
+
 test("Admin can read Lecturers by department", function() {
   expect(admin.readLecturersByDepartment("mathematics")).toBeTruthy();
 });
