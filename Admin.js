@@ -13,12 +13,16 @@ function Admin(name) {
     email,
     password
   ) {
+    const lecturers = retrieveAllLecturer();
+
+    this.id = lecturers.length > 0 ? lecturers[lecturers.length - 1].id + 1 : 1;
     var lect = new Lecturer(
       fullname,
       department,
       arrayOfcourses,
       email,
-      password
+      password,
+      this.id
     );
 
     saveLecturer(lect);
@@ -57,10 +61,6 @@ function Admin(name) {
     console.log("DELETED: ", found);
 
     return found;
-  };
-
-  this.retrieveAllTimetable = function() {
-    return this.retrieveAllTimetable();
   };
 }
 

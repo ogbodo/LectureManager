@@ -3,18 +3,25 @@ const DB = require("../database");
 function User(name, role) {
   this.name = name;
   this.role = role || "Lecturer";
-  this.id = 0;
+
   console.log(this);
 
   this.retrieveAllTimetable = function() {
     return DB["timetable"];
   };
 
+  this.retrieveLastTimetableId = function() {
+    const timetables = this.retrieveAllTimetable();
+
+    return timetables.length > 0 ? timetables[timetables.length - 1].id : 0;
+  };
+
   this.readTimetableByCourseTitle = function(title) {
     const timetables = this.retrieveAllTimetable();
     var found = false;
-    for (var i = 0; timetables.length; i++) {
+    for (var i = 0; i < timetables.length; i++) {
       if (timetables[i].title === title) {
+        console.log(":::::: ", timetables[i]);
         found = timetables[i];
         break;
       }
@@ -22,15 +29,17 @@ function User(name, role) {
     return found;
   };
 
-  this.readAllTimetables = function(userId) {
+  this.readAllTimetables = function() {
     const timetables = this.retrieveAllTimetable();
     var lecturerTimetables = [];
-    for (var i = 0; timetables.length; i++) {
-      if (timetables[i].userId === userId) {
+
+    for (var i = 0; i < timetables.length; i++) {
+      if (timetables[i].userId === this.id) {
         lecturerTimetables.push(timetables[i]);
       }
     }
-    console.log(userId + ": ", lecturerTimetables);
+
+    console.log(this.id + ": ", lecturerTimetables);
 
     return lecturerTimetables;
   };
