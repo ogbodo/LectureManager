@@ -81,6 +81,11 @@ test("Admin can delete a lecturer by email", function() {
   expect(admin.readAllLecturers().length).toBe(oldLength - 1);
 });
 
+test("Admin can delete all lecturer", function() {
+  admin.deleteAllLecturers();
+  expect(admin.readAllLecturers().length).toBe(0);
+});
+
 test("Admin can delete all timetables", function() {
   var oldLength = admin.readAllLecturers().length;
   admin.deleteAllTimetable();

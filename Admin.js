@@ -90,6 +90,10 @@ function Admin(name) {
   this.deleteAllTimetable = function() {
     DB["timetable"].splice(0, DB["timetable"].length);
   };
+
+  this.deleteAllLecturers = function() {
+    DB["lecturer"].splice(0, DB["lecturer"].length);
+  };
 }
 
 InheritProperty(Admin, User);
