@@ -85,6 +85,13 @@ test("Lecturers can update their own timetables", function() {
   ).toBeTruthy();
 });
 
+test("Lecturers trying to update their own timetables with one or more update data not inputed", function() {
+  var timetableUpdate = ["MTH302", "AUD", "3pm", "5pm"];
+  expect(
+    lecturer1.updateTimetable("Mth401", "10am", "mon", timetableUpdate)
+  ).toBeTruthy();
+});
+
 test("Lecturers cannot update others timetable", function() {
   var timetableUpdate = ["Eng421", "LR66", "3pm", "5pm", "thursday"];
   expect(
