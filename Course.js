@@ -1,4 +1,4 @@
-function Course(userId, title, venue, startTime, endTime, day) {
+function Course(title, venue, startTime, endTime, day, userId) {
   this.title = title;
   this.venue = venue;
   this.startTime = startTime;

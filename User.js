@@ -5,24 +5,35 @@ function User(name, role) {
   this.role = role || "Lecturer";
   this.id = 0;
   console.log(this);
-}
-User.prototype.readTimetableByCourseTitle = function(title) {
-  const timetables = retrieveAllTimetable();
-  var found = false;
-  for (var i = 0; timetables.length; i++) {
-    if (timetables[i].title === title) {
-      found = timetables[i];
-      break;
+
+  this.retrieveAllTimetable = function() {
+    return DB["timetable"];
+  };
+
+  this.readTimetableByCourseTitle = function(title) {
+    const timetables = this.retrieveAllTimetable();
+    var found = false;
+    for (var i = 0; timetables.length; i++) {
+      if (timetables[i].title === title) {
+        found = timetables[i];
+        break;
+      }
     }
-  }
-  return found;
-};
+    return found;
+  };
 
-// User.prototype.readAllTimetables = function() {
-//   return DB["timetable"];
-// };
+  this.readAllTimetables = function(userId) {
+    const timetables = this.retrieveAllTimetable();
+    var lecturerTimetables = [];
+    for (var i = 0; timetables.length; i++) {
+      if (timetables[i].userId === userId) {
+        lecturerTimetables.push(timetables[i]);
+      }
+    }
+    console.log(userId + ": ", lecturerTimetables);
 
-function retrieveAllTimetable() {
-  return DB["timetable"];
+    return lecturerTimetables;
+  };
 }
+
 module.exports = User;

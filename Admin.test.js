@@ -22,7 +22,7 @@ test("lecturer can create timetable", function() {
 });
 
 test("Admin can search for lecturer by email", function() {
-  var lecturer2 = admin.createNewLecturer(
+  admin.createNewLecturer(
     "Treasure ogbonna",
     "political science",
     ["pol212", "soc222"],
@@ -34,6 +34,10 @@ test("Admin can search for lecturer by email", function() {
 });
 
 test("Admin can read all lecturers", function() {
+  expect(admin.readAllLecturers()).toBeTruthy();
+});
+
+test("Admin can read all timetables", function() {
   expect(admin.readAllLecturers()).toBeTruthy();
 });
 

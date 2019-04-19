@@ -11,11 +11,22 @@ function Lecturer(fullname, department, arrayOfcourses, email, password) {
   this.email = email;
   this.password = password;
 
-  this.createTimetable = function(title, venue, startTime, endTime, day) {
-    var timetable = new Course(this.id, title, venue, startTime, endTime, day);
+  this.createTimetable = function(courseTitle, venue, startTime, endTime, day) {
+    var timetable = new Course(
+      courseTitle,
+      venue,
+      startTime,
+      endTime,
+      day,
+      this.id
+    );
     saveTimetable(timetable);
 
     return timetable;
+  };
+
+  this.retrieveAllTimetable = function() {
+    return this.readAllTimetables(this.id);
   };
 }
 

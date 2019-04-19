@@ -58,6 +58,10 @@ function Admin(name) {
 
     return found;
   };
+
+  this.retrieveAllTimetable = function() {
+    return this.retrieveAllTimetable();
+  };
 }
 
 InheritProperty(Admin, User);
