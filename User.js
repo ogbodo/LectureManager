@@ -18,15 +18,17 @@ function User(name, role) {
 
   this.readTimetableByCourseTitle = function(title) {
     const timetables = this.retrieveAllTimetable();
-    var found = false;
+    var foundTimetables = [];
     for (var i = 0; i < timetables.length; i++) {
-      if (timetables[i].title === title) {
-        console.log(":::::: ", timetables[i]);
-        found = timetables[i];
-        break;
+      if (timetables[i].title === title && this.role === "admin") {
+        foundTimetables.push(timetables[i]);
+      } else {
+        if (timetables[i].title === title && timetables[i].userId === this.id) {
+          foundTimetables.push(timetables[i]);
+        }
       }
     }
-    return found;
+    return foundTimetables;
   };
 
   this.readAllTimetables = function() {
