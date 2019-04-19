@@ -28,7 +28,7 @@ function User(name, role) {
         }
       }
     }
-    return foundTimetables;
+    return foundTimetables.length > 0 || false;
   };
 
   this.readAllTimetables = function() {

@@ -1,12 +1,12 @@
 const Admin = require("./Admin");
-const Course = require("./Course");
 
 var admin, lecturer1, lecturer2, timetable;
+
 test("create new admin user", function() {
   admin = new Admin("Admin1");
-
   expect(admin.name).toBe("Admin1");
 });
+
 test("Admin can create new lecturer", function() {
   lecturer1 = admin.createNewLecturer(
     "ogbodo Izu",
@@ -15,6 +15,7 @@ test("Admin can create new lecturer", function() {
     "solomon@gmail.com",
     "solomon"
   );
+
   lecturer2 = admin.createNewLecturer(
     "Treasure ogbonna",
     "political science",
@@ -22,14 +23,12 @@ test("Admin can create new lecturer", function() {
     "tressy@gmail.com",
     "tressy"
   );
-
   expect(lecturer1).toBeTruthy();
 });
 
 test("lecturer can create timetable", function() {
   timetable = lecturer1.createTimetable("Mth401", "AUD", "10am", "12pm", "mon");
   timetable = lecturer2.createTimetable("Pol212", "LR66", "4pm", "6pm", "fri");
-
   expect(timetable).toBeTruthy();
 });
 
@@ -48,7 +47,6 @@ test("Admin can read all timetables", function() {
 
 test("Lecturer can read only all timetables belonging to him/her", function() {
   timetable = lecturer1.createTimetable("Mth211", "AUD2", "8am", "10am", "wed");
-
   expect(lecturer1.readAllTimetables()).toBeTruthy();
 });
 
@@ -58,6 +56,10 @@ test("Admin can read timetables by course title", function() {
 
 test("Lecturers can read their own timetables by course title", function() {
   expect(lecturer2.readTimetableByCourseTitle("Pol212")).toBeTruthy();
+});
+
+test("Lecturer cannot read others timetables", function() {
+  expect(lecturer1.readTimetableByCourseTitle("Pol212")).toBeFalsy();
 });
 
 test("Admin can read timetables by department", function() {
