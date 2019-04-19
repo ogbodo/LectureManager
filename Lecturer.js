@@ -13,12 +13,17 @@ function Lecturer(fullname, department, arrayOfcourses, email, password) {
 
   this.createTimetable = function(title, venue, startTime, endTime, day) {
     var timetable = new Course(this.id, title, venue, startTime, endTime, day);
+    saveTimetable(timetable);
 
-    DB["timetable"].push(timetable);
-    console.log("Timetable saved!");
     return timetable;
   };
 }
 
 InheritProperty(Lecturer, User);
+
+function saveTimetable(timetable) {
+  DB["timetable"].push(timetable);
+
+  console.log("Timetable saved!");
+}
 module.exports = Lecturer;

@@ -7,7 +7,7 @@ function User(name, role) {
   console.log(this);
 }
 User.prototype.readTimetableByCourseTitle = function(title) {
-  const timetables = DB["timetable"];
+  const timetables = retrieveAllTimetable();
   var found = false;
   for (var i = 0; timetables.length; i++) {
     if (timetables[i].title === title) {
@@ -18,8 +18,11 @@ User.prototype.readTimetableByCourseTitle = function(title) {
   return found;
 };
 
-User.prototype.readAllTimetables = function() {
-  return DB["timetable"];
-};
+// User.prototype.readAllTimetables = function() {
+//   return DB["timetable"];
+// };
 
+function retrieveAllTimetable() {
+  return DB["timetable"];
+}
 module.exports = User;

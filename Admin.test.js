@@ -32,3 +32,7 @@ test("Admin can search for lecturer by email", function() {
   var lecturer = admin.searchLecturerByEmail("solomon@gmail.com");
   expect(lecturer).toBeTruthy();
 });
+
+test("Admin can read all lecturers", function() {
+  expect(admin.readAllLecturers()).toBeTruthy();
+});

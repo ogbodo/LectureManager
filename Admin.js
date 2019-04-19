@@ -21,17 +21,17 @@ function Admin(name) {
       password
     );
 
-    DB["lecturer"].push(lect);
+    saveLecturer(lect);
 
     return lect;
   };
 
   this.searchLecturerByEmail = function(email) {
-    const timetables = DB["lecturer"];
+    const lecturers = retrieveAllLecturer();
     var found = false;
-    for (var i = 0; timetables.length; i++) {
-      if (timetables[i].email === email) {
-        found = timetables[i];
+    for (var i = 0; lecturers.length; i++) {
+      if (lecturers[i].email === email) {
+        found = lecturers[i];
         break;
       }
     }
@@ -39,7 +39,22 @@ function Admin(name) {
 
     return found;
   };
+
+  this.readAllLecturers = function() {
+    return retrieveAllLecturer();
+  };
 }
 
 InheritProperty(Admin, User);
+
+function saveLecturer(lecturer) {
+  DB["lecturer"].push(lecturer);
+
+  console.log("Lecturer saved!");
+}
+
+function retrieveAllLecturer() {
+  return DB["lecturer"];
+}
+
 module.exports = Admin;
