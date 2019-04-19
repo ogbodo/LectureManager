@@ -84,7 +84,7 @@ function Admin(name) {
         foundLecturers.push(lecturers[i]);
       }
     }
-    return foundLecturers;
+    return foundLecturers.length > 0 || false;
   };
 
   this.deleteAllTimetable = function() {

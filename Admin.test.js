@@ -70,6 +70,10 @@ test("Admin can read Lecturers by department", function() {
   expect(admin.readLecturersByDepartment("mathematics")).toBeTruthy();
 });
 
+test("Admin trying to read Lecturers by department not existing", function() {
+  expect(admin.readLecturersByDepartment("Chemistry")).toBeFalsy();
+});
+
 test("Lecturers can update their own timetables", function() {
   var timetableUpdate = ["Eng421", "LR66", "3pm", "5pm", "thursday"];
   expect(
