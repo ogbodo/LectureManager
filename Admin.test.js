@@ -92,6 +92,13 @@ test("Lecturers cannot update others timetable", function() {
   ).toBeFalsy();
 });
 
+test("Lecturers trying to update their own timetables with one or more wrong needed data not inputed", function() {
+  var timetableUpdate = ["Eng421", "LR66", "3pm", "5pm", "thursday"];
+  expect(
+    lecturer1.updateTimetable("Pol212", "4pm", timetableUpdate)
+  ).toBeFalsy();
+});
+
 test("Admin can delete a lecturer by email", function() {
   expect(admin.deleteLecturerByEmail("solomon@gmail.com")).toBeTruthy();
 });
