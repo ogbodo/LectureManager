@@ -93,9 +93,11 @@ test("Lecturers cannot update others timetable", function() {
 });
 
 test("Admin can delete a lecturer by email", function() {
-  var oldLength = admin.readAllLecturers().length;
-  admin.deleteLecturerByEmail("solomon@gmail.com");
-  expect(admin.readAllLecturers().length).toBe(oldLength - 1);
+  expect(admin.deleteLecturerByEmail("solomon@gmail.com")).toBeTruthy();
+});
+
+test("Admin trying to delete a lecturer by none existing email", function() {
+  expect(admin.deleteLecturerByEmail("solomon@gmail.com")).toBeFalsy();
 });
 
 test("Admin can delete all lecturer", function() {

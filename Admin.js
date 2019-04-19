@@ -33,7 +33,7 @@ function Admin(name) {
   this.searchLecturerByEmail = function(email) {
     const lecturers = retrieveAllLecturer();
     var found = false;
-    for (var i = 0; lecturers.length; i++) {
+    for (var i = 0; i < lecturers.length; i++) {
       if (lecturers[i].email === email) {
         found = lecturers[i];
         break;
@@ -51,9 +51,9 @@ function Admin(name) {
   this.deleteLecturerByEmail = function(email) {
     const lecturers = retrieveAllLecturer();
     var found = false;
-    for (var i = 0; lecturers.length; i++) {
+    for (var i = 0; i < lecturers.length; i++) {
       if (lecturers[i].email === email) {
-        found = lecturers[i];
+        found = true;
         lecturers.splice(i, 1);
         break;
       }
