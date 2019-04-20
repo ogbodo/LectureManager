@@ -1,4 +1,4 @@
-const DB = require("../database");
+const DB = require("./database");
 const User = require("./User");
 const Lecturer = require("./Lecturer");
 const InheritProperty = require("./Interface");
