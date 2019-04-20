@@ -1,0 +1,15 @@
+{
+  "name": "TimetableManager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Admin.js",
+  "scripts": {
+    "test": "jest --watchAll --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^24.7.1"
+  }
+}
