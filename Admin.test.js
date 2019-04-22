@@ -45,21 +45,8 @@ test("Admin can read all timetables", function() {
   expect(admin.retrieveAllTimetable()).toBeTruthy();
 });
 
-test("Lecturer can read only all timetables belonging to him/her", function() {
-  timetable = lecturer1.createTimetable("Mth211", "AUD2", "8am", "10am", "wed");
-  expect(lecturer1.readAllTimetables()).toBeTruthy();
-});
-
 test("Admin can read timetables by course title", function() {
-  expect(admin.readTimetableByCourseTitle("Mth211")).toBeTruthy();
-});
-
-test("Lecturers can read their own timetables by course title", function() {
-  expect(lecturer2.readTimetableByCourseTitle("Pol212")).toBeTruthy();
-});
-
-test("Lecturer cannot read others timetables", function() {
-  expect(lecturer1.readTimetableByCourseTitle("Pol212")).toBeFalsy();
+  expect(admin.readTimetableByCourseTitle("Mth401")).toBeTruthy();
 });
 
 test("Admin can read timetables by department", function() {
@@ -76,34 +63,6 @@ test("Admin can read Lecturers by department", function() {
 
 test("Admin trying to read Lecturers by department not existing", function() {
   expect(admin.readLecturersByDepartment("Chemistry")).toBeFalsy();
-});
-
-test("Lecturers can update their own timetables", function() {
-  var timetableUpdate = ["Eng421", "LR66", "3pm", "5pm", "thursday"];
-  expect(
-    lecturer2.updateTimetable("Pol212", "4pm", "fri", timetableUpdate)
-  ).toBeTruthy();
-});
-
-test("Lecturers trying to update their own timetables with one or more update data not inputed", function() {
-  var timetableUpdate = ["MTH302", "AUD", "3pm", "5pm"];
-  expect(
-    lecturer1.updateTimetable("Mth401", "10am", "mon", timetableUpdate)
-  ).toBeTruthy();
-});
-
-test("Lecturers cannot update others timetable", function() {
-  var timetableUpdate = ["Eng421", "LR66", "3pm", "5pm", "thursday"];
-  expect(
-    lecturer1.updateTimetable("Pol212", "4pm", "fri", timetableUpdate)
-  ).toBeFalsy();
-});
-
-test("Lecturers trying to update their own timetables with one or more wrong needed data not inputed", function() {
-  var timetableUpdate = ["Eng421", "LR66", "3pm", "5pm", "thursday"];
-  expect(
-    lecturer1.updateTimetable("Pol212", "4pm", timetableUpdate)
-  ).toBeFalsy();
 });
 
 test("Admin can delete a lecturer by email", function() {
