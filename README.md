@@ -2,7 +2,7 @@
 This project is used to illustrate how Prototype Oriented programming (POP) in Javascript works. also, how Test/Behaviourial Driven Development (TDD/BDD) in javascript works with the aid of Jest Framework.
 
 ## Problem Statement
-A higher institution running a six-month program hired you to develop a software that enables only their lecturers to manage their timetables with the following specifications:
+A higher institution running a six-month program hired you to develop a software that enables only their lecturers to manage their lecture timetable with the following specifications:
 
 - There should be an admin.
 - Admin can create lecturers with respect to lecturer’s departments.
@@ -28,13 +28,6 @@ Install the jest framework for testing
 ```npm init```
 ```npm install --save-dev jest```
 
-// change the value of test in scripts to jest in your package.json
-
-```{
-  "scripts": {
-    "test": "jest"
-  }
-}
-To run all test cases: npm test
+``To run all test cases: npm test``
 
 
