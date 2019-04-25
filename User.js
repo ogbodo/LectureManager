@@ -42,8 +42,6 @@ User.prototype.readAllTimetables = function() {
     }
   }
 
-  console.log(this.id + ": ", lecturerTimetables);
-
   return lecturerTimetables;
 };
 

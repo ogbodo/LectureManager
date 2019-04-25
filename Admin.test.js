@@ -23,6 +23,7 @@ test("Admin can create new lecturer", function() {
     "tressy@gmail.com",
     "tressy"
   );
+
   expect(lecturer1).toBeTruthy();
 });
 
@@ -79,7 +80,6 @@ test("Admin can delete all lecturer", function() {
 });
 
 test("Admin can delete all timetables", function() {
-  var oldLength = admin.readAllLecturers().length;
   admin.deleteAllTimetable();
   expect(admin.retrieveAllTimetable().length).toBe(0);
 });
