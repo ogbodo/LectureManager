@@ -23,11 +23,10 @@ A higher institution running a six-month program hired you to develop a software
 ### NOTE: My tests accounted for all possible edge cases. Also, made sure that all tests are failing before actual implementation.
 
 ### To setup and run the project
-```Clone the Project```
+`Clone the Project`
 Install the jest framework for testing
-```npm init```
-```npm install --save-dev jest```
+`npm install --save-dev jest`
 
-``To run all test cases: npm test``
+`To run all test cases: npm test`
 
 
